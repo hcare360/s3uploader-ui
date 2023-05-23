@@ -59,9 +59,9 @@ export function S3ResourceDownload() {
   };
 
   return (
-    <Container header={<Header>Download objects from S3</Header>}>
+    <Container header={<Header>Download</Header>}>
       <FormField
-        label={<Header variant="h3">Select an object</Header>}
+        label={<Header variant="h3">Select an object to download</Header>}
         description="Choose an object (file) in Amazon S3. Amazon S3 is an object storage built to store and retrieve data."
         constraintText="Format: s3://bucket/prefix/object. For objects in a bucket with versioning enabled, you can choose the most recent or a previous version of the object."
         errorText={validationError}

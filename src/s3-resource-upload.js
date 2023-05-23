@@ -156,62 +156,60 @@ export function S3ResourceUpload() {
     <SpaceBetween size="l">
       <Container
         id="s3-upload-multiple-objects"
-        header={<Header variant="h2">Upload multiple objects to S3</Header>}
+        header={<Header variant="h2">Upload</Header>}
       >
-        {
-          <SpaceBetween direction="vertical" size="l">
-            <Alert
-              onDismiss={() => setVisibleAlert(false)}
-              visible={visibleAlert}
-              dismissAriaLabel="Close alert"
-              dismissible
-              type="error"
-              header="No files selected"
-            >
-              You must select the files that you want to upload.
-            </Alert>
-            <FormField
-              label={<Header variant="h3">Object Upload</Header>}
-              description="Click on the Choose Files button and select the files that you want to upload. Then click the Browse S3 button to select the folder in S3. Format: s3://bucket/prefix/object."
-              constraintText=""
-              errorText={validationError}
-              stretch={true}
-            />
-            <S3CustomSelector
-              resource={resource}
-              mode="write"
-              wrapWithErrorHandler={wrapWithErrorHandler}
-              fetchError={fetchError}
-              setValidationError={setValidationError}
-              setResource={setResource}
-            />
-            <SpaceBetween direction="horizontal" size="xs">
-              <Button onClick={handleClick} iconAlign="left" iconName="upload">
-                Choose file[s]
-              </Button>
+        <SpaceBetween direction="vertical" size="xs">
+          <Alert
+            onDismiss={() => setVisibleAlert(false)}
+            visible={visibleAlert}
+            dismissAriaLabel="Close alert"
+            dismissible
+            type="error"
+            header="No files selected"
+          >
+            You must select the files that you want to upload.
+          </Alert>
+          <FormField
+            label={<Header variant="h3">Select file(s) and folder</Header>}
+            description="Click on the Choose Files button and select the files that you want to upload. Then click the Browse S3 button to select the folder in S3. Format: s3://bucket/prefix/object."
+            constraintText=""
+            errorText={validationError}
+            stretch={true}
+          />
+          <S3CustomSelector
+            resource={resource}
+            mode="write"
+            wrapWithErrorHandler={wrapWithErrorHandler}
+            fetchError={fetchError}
+            setValidationError={setValidationError}
+            setResource={setResource}
+          />
+          <SpaceBetween direction="horizontal" size="xs">
+            <Button onClick={handleClick} iconAlign="left" iconName="upload">
+              Choose file[s]
+            </Button>
 
-              <input
-                type="file"
-                ref={hiddenFileInput}
-                onChange={handleChange}
-                style={{ display: "none" }}
-                multiple
-              />
-              <Button variant="primary" onClick={handleUpload}>
-                Upload
-              </Button>
-            </SpaceBetween>
-
-            <TokenGroup
-              onDismiss={({ detail: { itemIndex } }) => {
-                handleDismiss(itemIndex);
-              }}
-              items={uploadList}
-              alignment="vertical"
-              limit={10}
+            <input
+              type="file"
+              ref={hiddenFileInput}
+              onChange={handleChange}
+              style={{ display: "none" }}
+              multiple
             />
+            <Button variant="primary" onClick={handleUpload}>
+              Upload
+            </Button>
           </SpaceBetween>
-        }
+
+          <TokenGroup
+            onDismiss={({ detail: { itemIndex } }) => {
+              handleDismiss(itemIndex);
+            }}
+            items={uploadList}
+            alignment="vertical"
+            limit={10}
+          />
+        </SpaceBetween>
       </Container>
       <Container id="history" header={<Header variant="h2">History</Header>}>
         <List list={historyList} />
