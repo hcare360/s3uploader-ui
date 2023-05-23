@@ -1,0 +1,14 @@
+{
+  "resourceName": "filestore",
+  "policyUUID": "6e859107",
+  "bucketName": "brooksstorage1filestore",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "S3Trigger54579c95",
+  "groupAccess": {}
+}
