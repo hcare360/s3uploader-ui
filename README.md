@@ -1,4 +1,4 @@
-# Simple S3 Web Application to upload multiple files
+# HCare S3 Web Application to manage files in S3
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ## About
