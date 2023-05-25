@@ -7,9 +7,9 @@ import {
   Button,
   SpaceBetween,
 } from "@cloudscape-design/components";
-import { S3CustomSelector } from "./s3-custom-selector";
+import { S3CustomSelector, getLevelAndKey } from "./s3-custom-selector";
 import { Storage } from "aws-amplify";
-import { getLevelAndKey } from "./getLevelAndKey";
+
 export function SelfDismissibleAlert(props) {
   const [visible, setVisible] = useState(true);
   return visible ? (
@@ -23,8 +23,8 @@ export function S3ResourceDownload() {
   const [fetchError, setFetchError] = useState(null);
   const [resource, setResource] = useState({ uri: "" });
   const [objectViewURL, setObjectViewURL] = useState(undefined);
-  console.log(objectViewURL);
-  console.log(resource);
+  // console.log(objectViewURL);
+  // console.log(resource);
   useEffect(() => {
     const fetchURL = async () => {
       const uri = resource.uri;

@@ -8,9 +8,8 @@ import TokenGroup from "@cloudscape-design/components/token-group";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import ProgressBar from "@cloudscape-design/components/progress-bar";
 import { Storage } from "aws-amplify";
-import { formatBytes } from "./App";
-import { S3CustomSelector } from "./s3-custom-selector";
-import { getLevelAndKey } from "./getLevelAndKey";
+import { formatBytes } from "../App";
+import { S3CustomSelector, getLevelAndKey } from "./s3-custom-selector";
 
 export function S3ResourceUpload() {
   const hiddenFileInput = useRef(null);

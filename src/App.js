@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import "@aws-amplify/ui-react/styles.css";
 import "./App.css";
 import { Amplify, Auth } from "aws-amplify";
-import { Authenticator } from "@aws-amplify/ui-react";
-
+import { Home } from "./components/Home";
+import { Login } from "./components/Login";
+import { RequireAuth } from "./components/RequireAuth";
 import awsconfig from "./aws-exports";
-import { ContentAuthWrapper } from "./content-auth-wrapper";
-
+import { ContentAuthWrapper } from "./components/content-auth-wrapper";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Authenticator } from "@aws-amplify/ui-react";
 Amplify.configure(awsconfig);
 
 export const appLayoutLabels = {
@@ -40,16 +42,29 @@ function App() {
   };
 
   return (
-    <Authenticator>
-      {({ user }) => (
-        <ContentAuthWrapper
-          user={user}
-          navbarItemClick={navbarItemClick}
-          navigationOpen={navigationOpen}
-          setNavigationOpen={setNavigationOpen}
-        />
-      )}
-    </Authenticator>
+    <Authenticator.Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+            <Route
+              path="/cloudshare"
+              element={
+                <RequireAuth>
+                  <ContentAuthWrapper
+                    user={{ email: "" }}
+                    navbarItemClick={navbarItemClick}
+                    navigationOpen={navigationOpen}
+                    setNavigationOpen={setNavigationOpen}
+                  />
+                </RequireAuth>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Authenticator.Provider>
   );
 }
 

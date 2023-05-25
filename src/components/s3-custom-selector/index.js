@@ -1,9 +1,10 @@
 import React from "react";
 import { S3ResourceSelector } from "@cloudscape-design/components";
-import { fetchVersions } from "./fetchVersions";
-import { fetchObjects } from "./fetchObjects";
-import { fetchBuckets } from "./fetchBuckets";
-import { SelfDismissibleAlert } from "./s3-resource-download";
+export { fetchVersions } from "./fetchVersions";
+export { fetchObjects } from "./fetchObjects";
+export { fetchBuckets } from "./fetchBuckets";
+export { getLevelAndKey } from "./getLevelAndKey";
+import { SelfDismissibleAlert } from "../s3-resource-download";
 
 export function S3CustomSelector({
   resource,

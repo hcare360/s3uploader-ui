@@ -4,15 +4,16 @@ import TopNavigation from "@cloudscape-design/components/top-navigation";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import { S3ResourceUpload } from "./s3-resource-upload";
 import { S3ResourceDownload } from "./s3-resource-download";
-import { appLayoutLabels } from "./App";
+import { appLayoutLabels } from "../App";
 import { ServiceNavigation } from "./service-navigation";
-
+import { useAuthenticator } from "@aws-amplify/ui-react";
 export function ContentAuthWrapper({
-  user,
   navbarItemClick,
   navigationOpen,
   setNavigationOpen,
 }) {
+  const { user } = useAuthenticator((context) => [context.user]);
+
   const displayName = user?.attributes?.email || user.username;
   return (
     <>
