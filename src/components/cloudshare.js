@@ -7,7 +7,7 @@ import { S3ResourceDownload } from "./s3-resource-download";
 import { appLayoutLabels } from "../App";
 import { ServiceNavigation } from "./service-navigation";
 import { useAuthenticator } from "@aws-amplify/ui-react";
-export function ContentAuthWrapper({
+export function CloudShare({
   navbarItemClick,
   navigationOpen,
   setNavigationOpen,
