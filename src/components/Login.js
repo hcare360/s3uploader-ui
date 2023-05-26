@@ -18,11 +18,6 @@ export function Login() {
   }, [route, navigate, from]);
 
   if (USESAML) {
-    const redirect_uri =
-      window.location.protocol + "//" + window.location.host + "/";
-    const SAMLURL =
-      "https://brooks.auth.eu-west-1.amazoncognito.com/login?response_type=token&client_id=5r9g38k9lkd46i3ore4caobp6m&redirect_uri=" +
-      redirect_uri;
     return (
       <Container
         header={<Header variant="h2">HCare360 Cloud Share for Brooks.</Header>}
