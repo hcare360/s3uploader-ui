@@ -9,7 +9,8 @@ import SpaceBetween from "@cloudscape-design/components/space-between";
 import ProgressBar from "@cloudscape-design/components/progress-bar";
 import { Storage } from "aws-amplify";
 import { formatBytes } from "../App";
-import { S3CustomSelector, getLevelAndKey } from "./s3-custom-selector";
+import { S3CustomSelector } from "./s3-custom-selector";
+import { getLevelAndKey } from "./s3-custom-selector/getLevelAndKey";
 
 export function S3ResourceUpload() {
   const hiddenFileInput = useRef(null);

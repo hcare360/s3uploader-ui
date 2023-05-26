@@ -7,7 +7,9 @@ import {
   Button,
   SpaceBetween,
 } from "@cloudscape-design/components";
-import { S3CustomSelector, getLevelAndKey } from "./s3-custom-selector";
+import { S3CustomSelector } from "./s3-custom-selector";
+import { getLevelAndKey } from "./s3-custom-selector/getLevelAndKey";
+
 import { Storage } from "aws-amplify";
 
 export function SelfDismissibleAlert(props) {
