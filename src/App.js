@@ -8,18 +8,10 @@ import awsconfig from "./aws-exports";
 import { CloudShare } from "./components/cloudshare";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Authenticator } from "@aws-amplify/ui-react";
-
-const urlPrefix =
-  window.location.origin + window.location.pathname.replace(/[^/]*$/, "");
+import { oauth } from "./saml";
 
 // Setup OAuth for SAML
-awsconfig.oauth = {
-  domain: "brooks.auth.eu-west-1.amazoncognito.com",
-  scope: ["email", "openid", "profile"],
-  responseType: "code",
-  redirectSignOut: urlPrefix,
-  redirectSignIn: urlPrefix,
-};
+awsconfig.oauth = oauth;
 
 Amplify.configure(awsconfig);
 
@@ -32,15 +24,6 @@ export const appLayoutLabels = {
   toolsToggle: "Open help panel",
   toolsClose: "Close help panel",
 };
-
-export function formatBytes(a, b = 2, k = 1024) {
-  let d = Math.floor(Math.log(a) / Math.log(k));
-  return 0 === a
-    ? "0 Bytes"
-    : parseFloat((a / Math.pow(k, d)).toFixed(Math.max(0, b))) +
-        " " +
-        ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"][d];
-}
 
 function App() {
   const [navigationOpen, setNavigationOpen] = useState(true);

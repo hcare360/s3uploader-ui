@@ -14,7 +14,7 @@
 
 /*This CSS hide the signUp tab*/
 .amplify-tabs {
-  display: block;
+  display: none;
 }
 
 /* This adjust the SignIn font size */

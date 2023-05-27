@@ -2,7 +2,7 @@
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ## About
-This repository contains the Open Source Software to demonstrate how to build a simple WebApp to users upload files to S3.  
+This repository contains the Open Source Software to demonstrate how to build a simple WebApp to users upload files to S3.  This was extended to provide a means to download files.
 
 ### Built With
 
@@ -39,7 +39,15 @@ Add the application hosting
 
 > Select Amazon CloudFront and S3. Define a new unique bucket name or use the suggested one.
 
-Now, you can build the web app (front-end)
+Add the SAML federated identity provider from the AWS Web console.
+
+Modify `saml.js` to edit the domain for Cognito and the name of the SAML provider.
+
+Modify `side-navigation.js` to adapt the side bar navigation.
+
+Replace public/logo192.png to use your own logo.
+
+Now, you can build the web app (front-end). If you have setup CI/CD in Amplify, you can build the website with a commit.
 
 ```bash
 npm install
@@ -58,7 +66,7 @@ Comment or remove the following block:
 display: none;
 }
 ```
-> After this change you need to re-run `amplify publish`
+> After this change you need to re-run `amplify publish` or push a commit if using CI/CD
 
 
 ### Prerequisites

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router";
 import { Container, Header, Button } from "@cloudscape-design/components";
 import { Auth } from "aws-amplify";
-
+import { customProvider } from "../saml";
 const USESAML = true;
 export function Login() {
   const { route } = useAuthenticator((context) => [context.route]);
@@ -19,12 +19,8 @@ export function Login() {
 
   if (USESAML) {
     return (
-      <Container
-        header={<Header variant="h2">HCare360 Cloud Share for Brooks.</Header>}
-      >
-        <Button
-          onClick={() => Auth.federatedSignIn({ customProvider: "Brooks" })}
-        >
+      <Container header={<Header variant="h2">Cloud Share</Header>}>
+        <Button onClick={() => Auth.federatedSignIn({ customProvider })}>
           SSO Login
         </Button>
       </Container>

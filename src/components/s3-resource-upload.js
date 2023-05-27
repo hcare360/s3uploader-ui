@@ -8,7 +8,7 @@ import TokenGroup from "@cloudscape-design/components/token-group";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import ProgressBar from "@cloudscape-design/components/progress-bar";
 import { Storage } from "aws-amplify";
-import { formatBytes } from "../App";
+import { formatBytes } from "./s3-custom-selector/formatBytes";
 import { S3CustomSelector } from "./s3-custom-selector";
 import { getLevelAndKey } from "./s3-custom-selector/getLevelAndKey";
 
