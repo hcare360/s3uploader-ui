@@ -9,4 +9,6 @@ export const oauth = {
   redirectSignIn: urlPrefix,
 };
 // Name of SAML federated provider in Cognito
-export const customProvider = "Brooks";
+export const federationSettings = {
+  customProvider: "COGNITO",
+};
