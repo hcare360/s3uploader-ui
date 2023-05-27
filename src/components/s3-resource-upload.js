@@ -183,6 +183,7 @@ export function S3ResourceUpload() {
             fetchError={fetchError}
             setValidationError={setValidationError}
             setResource={setResource}
+            inContextInputPlaceholder="s3://bucket/prefix/folder/folder/"
           />
           <SpaceBetween direction="horizontal" size="xs">
             <Button onClick={handleClick} iconAlign="left" iconName="upload">

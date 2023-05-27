@@ -13,6 +13,7 @@ export function S3CustomSelector({
   setResource,
   setValidationError,
   viewURL,
+  inContextInputPlaceholder,
 }) {
   console.log({ fetchBuckets, fetchObjects, fetchVersions });
   return (
@@ -38,7 +39,8 @@ export function S3CustomSelector({
         fetchVersions(bucketName, pathPrefix)
       )}
       i18nStrings={{
-        inContextInputPlaceholder: "s3://bucket/prefix/object",
+        inContextInputPlaceholder:
+          inContextInputPlaceholder || "s3://bucket/prefix/object",
         inContextSelectPlaceholder: "Choose a version",
         inContextBrowseButton: "Browse S3",
         inContextViewButton: "View",
