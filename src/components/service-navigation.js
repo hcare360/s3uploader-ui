@@ -24,7 +24,7 @@ export function ServiceNavigation() {
         {
           type: "link",
           text: "Brooks",
-          href: "https://www.google.com/search?q=brooks",
+          href: "https://www.brooks.com/",
           external: true,
         },
         {
